@@ -1,6 +1,8 @@
 -- Ejercicios practicos de Procedimientos almacenados
 -- Practical exercises on stored procedures
 
+-- (1)
+
 -- Creacion del procedimiento almacenado
 -- Creating the stored procedure
 
@@ -19,4 +21,21 @@ DELIMITER ;
 CALL AgregarEmpleado('Elena', 'Torres', 'elena.torres@email.com', 3)
 
 
+-- (2)
 
+
+DELIMITER //
+
+CREATE PROCEDURE AgregarDepartamento ( IN _nombre VARCHAR(255), IN _ubicacion VARCHAR(255))
+BEGIN
+	INSERT INTO departamentos (nombre,ubicacion) values(_nombre , _ubicacion);
+END //
+
+DELIMITER ;
+
+
+
+CALL AgregarDepartamento('Desarrollo de software', 'Edificio de nuevas tegnologias')
+
+
+SELECT * FROM empresadb.departamentos;
